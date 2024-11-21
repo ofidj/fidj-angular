@@ -1,0 +1,16 @@
+{
+  "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
+  "lib": {
+    "entryFile": "./src/index.ts"
+  },
+  "allowedNonPeerDependencies": [
+    "fidj-node",
+    "atob",
+    "axios",
+    "btoa",
+    "localstorage-polyfill",
+    "pouchdb",
+    "pouchdb-adapter-cordova-sqlite",
+    "proper-url-join"
+  ]
+}
