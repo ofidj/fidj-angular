@@ -42,8 +42,7 @@
   },
   "scripts": {
     "_clean": "rm -rf .gen .logs .nyc_output .coverage dist node_modules package-lock.json",
-    "build": "npm run build-version && npm run build-dist",
-    "build-version": "VERSION=\"$(npm version patch --no-git-tag-version)\" && echo \"export const fidj={version:'$VERSION'}\" > ./src/module/fidj.ts",
+    "build": "npm run build-dist",
     "build-dist": "rm -rf dist/ && tsc --project tsconfig.json && cp *.md dist/ && cp package.json dist/",
     "test": "mocha --require ts-node/register 'specs/**/**.spec.ts'",
     "coverage": "nyc npm run test",
