@@ -1,6 +1,6 @@
 {
   "name": "fidj-angular",
-  "version": "15.0.10",
+  "version": "15.0.14",
   "author": "fidj",
   "description": "fidj angular tools",
   "keywords": [],
@@ -9,7 +9,7 @@
   "main": "./index.js",
   "types": "./index.d.ts",
   "dependencies": {
-    "fidj-node": "^15.0.10"
+    "fidj-node": "^15.0.14"
   },
   "devDependencies": {
     "@angular/cli": "^15.0.0",
@@ -41,8 +41,9 @@
     "typescript": "4.9.5"
   },
   "scripts": {
-    "_clean": "rm -rf .gen .logs .nyc_output .coverage dist node_modules package-lock.json",
+    "_clean": "rm -rf .gen .logs .nyc_output .coverage dist node_modules package-lock.json && npm install",
     "build": "npm run build-angular",
+    "build-version": "VERSION=\"$(npm version patch --no-git-tag-version)\"",
     "test": "mocha --require ts-node/register 'specs/**/**.spec.ts'",
     "coverage": "nyc npm run test",
     "build-angular": "ng-packagr -p ng-package.json",
