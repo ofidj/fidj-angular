@@ -136,7 +136,11 @@ export class FidjService implements ModuleServiceInterface {
         if (!this.fidjService) {
             return this.promise.reject(new FidjError(401, 'fidj.sdk.angular.sync : not initialized.'));
         }
-        return this.fidjService.fidjSync(fnInitFirstData, this);
+        return this.fidjService.fidjSync({
+            forceRefresh: false,
+            fnInitFirstData,
+            fnInitFirstData_Arg: this
+        });
     };
 
     /**
