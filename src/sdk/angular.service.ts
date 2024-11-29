@@ -132,7 +132,7 @@ export class FidjService implements ModuleServiceInterface {
      *  .catch(err => ...)
      *
      */
-    public async sync(fnInitFirstData?): Promise<void | ErrorInterface> {
+    public async sync(fnInitFirstData?: (a?: any) => Promise<any>): Promise<void | ErrorInterface> {
         if (!this.fidjService) {
             return this.promise.reject(new FidjError(401, 'fidj.sdk.angular.sync : not initialized.'));
         }
