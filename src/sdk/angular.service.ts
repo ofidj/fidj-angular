@@ -110,7 +110,7 @@ export class FidjService implements ModuleServiceInterface {
     };
 
     public async logout(force?: boolean): Promise<void | ErrorInterface> {
-        if (force || !this.fidjService) {
+        if (!force && !this.fidjService) {
             return this.promise.reject(new FidjError(303, 'fidj.sdk.angular.logout : not initialized.'));
         }
         return this.fidjService.fidjLogout(force);
