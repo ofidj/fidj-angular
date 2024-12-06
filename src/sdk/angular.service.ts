@@ -113,7 +113,7 @@ export class FidjService implements ModuleServiceInterface {
         if (!force && !this.fidjService) {
             return this.promise.reject(new FidjError(303, 'fidj.sdk.angular.logout : not initialized.'));
         }
-        return this.fidjService.fidjLogout(force);
+        return this.fidjService?.fidjLogout(force);
     };
 
     /**
