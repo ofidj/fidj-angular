@@ -5,13 +5,13 @@ import {
     ErrorInterface,
     FidjError,
     FidjNodeService,
+    IService,
     LoggerInterface,
     LoggerLevelEnum,
     LoggerService,
     ModuleServiceInitOptionsInterface,
     ModuleServiceLoginOptionsInterface
 } from 'fidj-node';
-import {ModuleServiceInterface} from './interfaces';
 
 /**
  * Angular FidjService
@@ -21,7 +21,7 @@ import {ModuleServiceInterface} from './interfaces';
 @Injectable({
     providedIn: 'root',
 })
-export class FidjService implements ModuleServiceInterface {
+export class FidjService implements IService {
 
     private logger: LoggerInterface;
     private fidjService: FidjNodeService;
@@ -35,32 +35,32 @@ export class FidjService implements ModuleServiceInterface {
         // pouchdbRequired.error();
     };
 
-    public async init(fidjId: string, options?: ModuleServiceInitOptionsInterface): Promise<void | ErrorInterface> {
+    public async init(fidjId: string, options?: ModuleServiceInitOptionsInterface) {
         if (!this.fidjService) {
             this.fidjService = new FidjNodeService(this.logger, this.promise);
         }
-        return this.fidjService.fidjInit(fidjId, options);
+        return this.fidjService.init(fidjId, options);
     };
 
-    public async login(login: string, password: string): Promise<any | ErrorInterface> {
+    public async login(login: string, password: string) {
         if (!this.fidjService) {
             return this.promise.reject(new FidjError(303, 'fidj.sdk.angular.login : not initialized.'));
         }
-        return this.fidjService.fidjLogin(login, password);
+        return this.fidjService.login(login, password);
     };
 
-    public async loginAsDemo(options?: ModuleServiceLoginOptionsInterface): Promise<any | ErrorInterface> {
+    public async loginInDemoMode(options?: ModuleServiceLoginOptionsInterface) {
         if (!this.fidjService) {
             return this.promise.reject(new FidjError(303, 'fidj.sdk.angular.loginAsDemo : not initialized.'));
         }
-        return this.fidjService.fidjLoginInDemoMode(options);
+        return this.fidjService.loginInDemoMode(options);
     };
 
     public isLoggedIn(): boolean {
         if (!this.fidjService) {
             return false; // this.promise.reject('fidj.sdk.angular.isLoggedIn : not initialized.');
         }
-        return this.fidjService.fidjIsLogin();
+        return this.fidjService.isLoggedIn();
     };
 
     public async getRoles(): Promise<Array<any>> {
@@ -81,14 +81,14 @@ export class FidjService implements ModuleServiceInterface {
      * @throws {ErrorInterface}
      * @param {EndpointCallInterface} input
      */
-    public async sendOnEndpoint(input: EndpointCallInterface): Promise<{ status: number, data: any }> {
+    public async sendOnEndpoint(input: EndpointCallInterface): Promise<{ status: number, data?: any }> {
         if (!this.fidjService) {
             return this.promise.reject(new FidjError(303, 'fidj.sdk.angular.loginAsDemo : not initialized.'));
         }
-        return this.fidjService.fidjSendOnEndpoint(input);
+        return this.fidjService.sendOnEndpoint(input);
     };
 
-    public async forgotPasswordRequest(email: String): Promise<void> {
+    public async forgotPasswordRequest(email: String) {
         if (!this.fidjService) {
             return this.promise.reject(new FidjError(303, 'fidj.sdk.angular.loginAsDemo : not initialized.'));
         }
@@ -102,18 +102,18 @@ export class FidjService implements ModuleServiceInterface {
         return this.fidjService.fidjGetIdToken();
     };
 
-    public async getMessage(): Promise<string> {
+    public async getMessage() {
         if (!this.fidjService) {
             return '';
         }
         return this.fidjService.fidjMessage();
     };
 
-    public async logout(force?: boolean): Promise<void | ErrorInterface> {
+    public async logout(force?: boolean) {
         if (!force && !this.fidjService) {
             return this.promise.reject(new FidjError(303, 'fidj.sdk.angular.logout : not initialized.'));
         }
-        return this.fidjService?.fidjLogout(force);
+        return this.fidjService?.logout(force);
     };
 
     /**
@@ -132,11 +132,11 @@ export class FidjService implements ModuleServiceInterface {
      *  .catch(err => ...)
      *
      */
-    public async sync(fnInitFirstData?: (a?: any) => Promise<any>): Promise<void | ErrorInterface> {
+    public async sync(fnInitFirstData?: (a?: any) => Promise<any>) {
         if (!this.fidjService) {
             return this.promise.reject(new FidjError(401, 'fidj.sdk.angular.sync : not initialized.'));
         }
-        return this.fidjService.fidjSync({
+        return this.fidjService.sync({
             forceRefresh: false,
             fnInitFirstData,
             fnInitFirstData_Arg: this
