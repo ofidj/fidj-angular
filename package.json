@@ -1,6 +1,6 @@
 {
   "name": "fidj-angular",
-  "version": "15.1.7",
+  "version": "15.1.8",
   "author": "fidj",
   "description": "fidj angular tools",
   "keywords": [],
@@ -9,7 +9,7 @@
   "main": "./index.js",
   "types": "./index.d.ts",
   "dependencies": {
-    "fidj-node": "^15.1.7"
+    "fidj-node": "^15.1.8"
   },
   "devDependencies": {
     "@angular/cli": "^15.0.0",
