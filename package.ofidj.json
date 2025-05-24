@@ -3,6 +3,6 @@
     "fidj-node": "file:../fidj-node/dist"
   },
   "remote.dependencies": {
-    "fidj-node": "^1.0.0"
+    "fidj-node": "^15.1.11"
   }
 }
