@@ -1,12 +1,12 @@
-# fidj-node
+# fidj-angular
 
-> fidj node tools
+> fidj angular tools
 
 Please read the [specifications](./specs).
 
 ## History
 
-See [Release notes](./RELEASE.md).
+See [Changelog](./CHANGELOG.md).
 
 ## License
 

@@ -9,14 +9,11 @@ import {CommonModule} from '@angular/common';
  * @stable
  */
 @NgModule({
-    imports: [
-        CommonModule
-    ],
+    imports: [CommonModule],
     declarations: [],
 
     exports: [],
 })
 export class FidjModule {
-    constructor() {
-    }
+    constructor() {}
 }
