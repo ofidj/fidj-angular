@@ -109,15 +109,15 @@ export class FidjService implements IService {
      * @throws {ErrorInterface}
      * @param {EndpointCallInterface} input
      */
-    public async sendOnEndpoint(
-        input: EndpointCallInterface
-    ): Promise<{status: number; data?: any}> {
+    public async sendOnEndpoint<TData = any, TResponse = any>(
+        input: EndpointCallInterface<TData>
+    ): Promise<{status: number; data?: TResponse}> {
         if (!this.fidjService) {
             return this.promise.reject(
                 new FidjError(303, 'fidj.sdk.angular.loginAsDemo : not initialized.')
             );
         }
-        return this.fidjService.sendOnEndpoint(input);
+        return this.fidjService.sendOnEndpoint<TData, TResponse>(input);
     }
 
     public async forgotPasswordRequest(email: string) {
