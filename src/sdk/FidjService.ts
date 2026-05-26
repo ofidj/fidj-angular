@@ -5,7 +5,6 @@ import {
     ErrorInterface,
     FidjError,
     FidjNodeService,
-    IService,
     LoggerInterface,
     LoggerLevelEnum,
     LoggerService,
@@ -13,15 +12,10 @@ import {
     ModuleServiceLoginOptionsInterface,
 } from 'fidj-node';
 
-/**
- * Angular FidjService
- * @see ModuleServiceInterface
- *
- */
 @Injectable({
     providedIn: 'root',
 })
-export class FidjService implements IService {
+export class FidjService {
     private logger: LoggerInterface;
     private fidjService: FidjNodeService;
     private promise: any;
