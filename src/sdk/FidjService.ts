@@ -1,8 +1,15 @@
 import {Injectable} from '@angular/core';
 import {
+    ClientUser,
     EndpointCallInterface,
     EndpointInterface,
     ErrorInterface,
+    FidjApiConsentsHistoryResponse,
+    FidjApiConsentsResponse,
+    FidjApiConsentsUpdateRequest,
+    FidjApiUsersMeDetailsResponse,
+    FidjApiUsersMeResponse,
+    FidjApiUsersMeUpdateRequest,
     FidjError,
     FidjNodeService,
     IService,
@@ -230,5 +237,88 @@ export class FidjService implements IService {
             );
         }
         return this.fidjService.fidjFindAllInDb();
+    }
+
+    public async initAndLogin(
+        login: string,
+        password: string,
+        fidjId?: string,
+        options?: ModuleServiceInitOptionsInterface
+    ): Promise<ClientUser> {
+        if (!this.fidjService) {
+            this.fidjService = new FidjNodeService(this.logger, this.promise);
+        }
+        return this.fidjService.initAndLogin(login, password, fidjId, options);
+    }
+
+    public async initDemo(
+        fidjId?: string,
+        options?: ModuleServiceInitOptionsInterface
+    ): Promise<ClientUser> {
+        if (!this.fidjService) {
+            this.fidjService = new FidjNodeService(this.logger, this.promise);
+        }
+        return this.fidjService.initDemo(fidjId, options);
+    }
+
+    public async getMe(): Promise<{status: number; data?: FidjApiUsersMeResponse}> {
+        if (!this.fidjService) {
+            return this.promise.reject(
+                new FidjError(303, 'fidj.sdk.angular.getMe : not initialized.')
+            );
+        }
+        return this.fidjService.getMe();
+    }
+
+    public async getMeDetails(): Promise<{status: number; data?: FidjApiUsersMeDetailsResponse}> {
+        if (!this.fidjService) {
+            return this.promise.reject(
+                new FidjError(303, 'fidj.sdk.angular.getMeDetails : not initialized.')
+            );
+        }
+        return this.fidjService.getMeDetails();
+    }
+
+    public async updateMe(
+        data: FidjApiUsersMeUpdateRequest
+    ): Promise<{status: number; data?: FidjApiUsersMeResponse}> {
+        if (!this.fidjService) {
+            return this.promise.reject(
+                new FidjError(303, 'fidj.sdk.angular.updateMe : not initialized.')
+            );
+        }
+        return this.fidjService.updateMe(data);
+    }
+
+    public async getConsents(): Promise<{status: number; data?: FidjApiConsentsResponse}> {
+        if (!this.fidjService) {
+            return this.promise.reject(
+                new FidjError(303, 'fidj.sdk.angular.getConsents : not initialized.')
+            );
+        }
+        return this.fidjService.getConsents();
+    }
+
+    public async putConsents(
+        data: FidjApiConsentsUpdateRequest
+    ): Promise<{status: number; data?: FidjApiConsentsResponse}> {
+        if (!this.fidjService) {
+            return this.promise.reject(
+                new FidjError(303, 'fidj.sdk.angular.putConsents : not initialized.')
+            );
+        }
+        return this.fidjService.putConsents(data);
+    }
+
+    public async getConsentsHistory(): Promise<{
+        status: number;
+        data?: FidjApiConsentsHistoryResponse;
+    }> {
+        if (!this.fidjService) {
+            return this.promise.reject(
+                new FidjError(303, 'fidj.sdk.angular.getConsentsHistory : not initialized.')
+            );
+        }
+        return this.fidjService.getConsentsHistory();
     }
 }
