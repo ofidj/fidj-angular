@@ -6,8 +6,9 @@ import {
     ErrorInterface,
     IService,
     ModuleServiceInitOptionsInterface,
+    ModuleServiceLoginCallOptionsInterface,
     ModuleServiceLoginOptionsInterface,
-} from 'fidj-node';
+} from '@ofidj/node';
 
 export {
     LocalStorage,
@@ -17,6 +18,7 @@ export {
     ErrorInterface,
     IService,
     ModuleServiceInitOptionsInterface,
+    ModuleServiceLoginCallOptionsInterface,
     ModuleServiceLoginOptionsInterface,
 };
 export * from './sdk';

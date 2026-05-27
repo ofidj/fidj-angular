@@ -1,8 +1,8 @@
 {
     "local.dependencies": {
-        "fidj-node": "file:../fidj-node/dist"
+        "@ofidj/node": "file:../fidj-node/dist"
     },
     "remote.dependencies": {
-        "fidj-node": "~15.1.14"
+        "@ofidj/node": "~1.0.0"
     }
 }
