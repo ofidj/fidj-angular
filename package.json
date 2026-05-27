@@ -1,11 +1,22 @@
 {
-  "name": "fidj-angular",
-  "version": "15.1.13",
+  "name": "@ofidj/angular",
+  "version": "1.0.0",
   "author": "fidj",
   "description": "fidj angular tools",
   "keywords": [],
   "private": false,
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ofidj/fidj-angular.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ofidj/fidj-angular/issues"
+  },
+  "homepage": "https://fidj.ovh",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "./index.js",
   "types": "./index.d.ts",
   "scripts": {
@@ -26,7 +37,7 @@
     "test": "echo 'nothing to test'"
   },
   "dependencies": {
-    "fidj-node": "file:../fidj-node/dist"
+    "@ofidj/node": "file:../fidj-node/dist"
   },
   "devDependencies": {
     "@angular/cli": "^20.0.0",

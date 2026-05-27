@@ -19,7 +19,7 @@ import {
     ModuleServiceInitOptionsInterface,
     ModuleServiceLoginCallOptionsInterface,
     ModuleServiceLoginOptionsInterface,
-} from 'fidj-node';
+} from '@ofidj/node';
 
 /**
  * Angular FidjService

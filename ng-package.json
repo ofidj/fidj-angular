@@ -4,7 +4,7 @@
     "entryFile": "./src/index.ts"
   },
   "allowedNonPeerDependencies": [
-    "fidj-node",
+    "@ofidj/node",
     "atob",
     "axios",
     "btoa",
