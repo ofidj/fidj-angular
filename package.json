@@ -26,7 +26,7 @@
     "test": "echo 'nothing to test'"
   },
   "dependencies": {
-    "fidj-node": "~15.1.14"
+    "fidj-node": "file:../fidj-node/dist"
   },
   "devDependencies": {
     "@angular/cli": "^20.0.0",

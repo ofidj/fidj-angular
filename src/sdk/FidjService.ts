@@ -17,6 +17,7 @@ import {
     LoggerLevelEnum,
     LoggerService,
     ModuleServiceInitOptionsInterface,
+    ModuleServiceLoginCallOptionsInterface,
     ModuleServiceLoginOptionsInterface,
 } from 'fidj-node';
 
@@ -48,13 +49,17 @@ export class FidjService implements IService {
         return this.fidjService.init(fidjId, options);
     }
 
-    public async login(login: string, password: string) {
+    public async login(
+        login: string,
+        password: string,
+        options?: ModuleServiceLoginCallOptionsInterface
+    ) {
         if (!this.fidjService) {
             return this.promise.reject(
                 new FidjError(303, 'fidj.sdk.angular.login : not initialized.')
             );
         }
-        return this.fidjService.login(login, password);
+        return this.fidjService.login(login, password, options);
     }
 
     public async loginInDemoMode(options?: ModuleServiceLoginOptionsInterface) {

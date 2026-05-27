@@ -6,6 +6,7 @@ import {
     ErrorInterface,
     IService,
     ModuleServiceInitOptionsInterface,
+    ModuleServiceLoginCallOptionsInterface,
     ModuleServiceLoginOptionsInterface,
 } from 'fidj-node';
 
@@ -17,6 +18,7 @@ export {
     ErrorInterface,
     IService,
     ModuleServiceInitOptionsInterface,
+    ModuleServiceLoginCallOptionsInterface,
     ModuleServiceLoginOptionsInterface,
 };
 export * from './sdk';
