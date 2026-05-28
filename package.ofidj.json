@@ -3,6 +3,6 @@
         "@ofidj/node": "file:../fidj-node/dist"
     },
     "remote.dependencies": {
-        "@ofidj/node": "~1.0.0"
+        "@ofidj/node": "^3.6.23"
     }
 }

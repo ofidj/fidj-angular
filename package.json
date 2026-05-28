@@ -1,6 +1,6 @@
 {
   "name": "@ofidj/angular",
-  "version": "1.0.0",
+  "version": "3.6.22",
   "author": "fidj",
   "description": "fidj angular tools",
   "keywords": [],
@@ -37,7 +37,7 @@
     "test": "echo 'nothing to test'"
   },
   "dependencies": {
-    "@ofidj/node": "~1.0.0"
+    "@ofidj/node": "^3.6.23"
   },
   "devDependencies": {
     "@angular/cli": "^20.0.0",

@@ -7,17 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [15.1.12] - 2025-06-30
+
 ## [1.0.0] - 2026-05-27
 
 ### Changed
 
-- **Renamed package from `fidj-angular` to `@ofidj/angular`.** Scope aligns with the `ofidj` GitHub organisation and the `@ofidj/*` family. Reset semver to `1.0.0`.
+- **Renamed package from `fidj-angular` to `@ofidj/angular`.** Scope aligns with the `ofidj` GitHub organisation and the
+  `@ofidj/*` family. Reset semver to `1.0.0`.
 - Peer-dep convention with Angular kept: future majors track Angular's major (current build targets Angular 20).
 - Internal dependency `fidj-node` → `@ofidj/node` (both `package.json` and `package.ofidj.json` local/remote variants).
 - Update imports: `from 'fidj-node'` → `from '@ofidj/node'` in `src/index.ts` and `src/sdk/FidjService.ts`.
 - The old `fidj-angular` and legacy `fidj` npm packages are deprecated; migrate to `@ofidj/angular`.
 
-## [15.1.12] - 2024-06-30
+## [legacy-15.1.12] - 2025-06-30
 
 ### Added
 
@@ -26,7 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Prettier configuration
 - BP scripts for development workflow
 
-## [15.0.0] - 2024-10-15
+## [legacy-15.0.0] - 2024-10-15
 
 ### Added
 
