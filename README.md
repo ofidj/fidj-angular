@@ -17,3 +17,7 @@ See [Changelog](./CHANGELOG.md).
 ## License
 
 MIT
+
+## Account lifecycle
+
+The service delegates `fidjForgotPasswordRequest`, `resetPassword`, `verifyEmail`, and authenticated `resendVerification` to the Node SDK. The existing `forgotPasswordRequest` alias remains supported. Initialize the service before using these methods.

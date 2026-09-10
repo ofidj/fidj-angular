@@ -4,6 +4,8 @@ import {
     EndpointCallInterface,
     EndpointInterface,
     ErrorInterface,
+    FidjApiResetPasswordRequest,
+    FidjApiVerifyEmailRequest,
     FidjApiConsentsHistoryResponse,
     FidjApiConsentsResponse,
     FidjApiConsentsUpdateRequest,
@@ -139,6 +141,25 @@ export class FidjService implements IService {
             );
         }
         return this.fidjService.fidjForgotPasswordRequest(email);
+    }
+
+    public async fidjForgotPasswordRequest(email: string): Promise<void> {
+        return this.forgotPasswordRequest(email);
+    }
+
+    public async resetPassword(data: FidjApiResetPasswordRequest): Promise<void> {
+        if (!this.fidjService) throw new FidjError(303, 'Fidj is not initialized.');
+        return this.fidjService.resetPassword(data);
+    }
+
+    public async verifyEmail(data: FidjApiVerifyEmailRequest): Promise<void> {
+        if (!this.fidjService) throw new FidjError(303, 'Fidj is not initialized.');
+        return this.fidjService.verifyEmail(data);
+    }
+
+    public async resendVerification(): Promise<void> {
+        if (!this.fidjService) throw new FidjError(303, 'Fidj is not initialized.');
+        return this.fidjService.resendVerification();
     }
 
     public async getIdToken() {
