@@ -37,7 +37,7 @@
     "test": "echo 'nothing to test'"
   },
   "dependencies": {
-    "@ofidj/node": "^3.6.23"
+    "@ofidj/node": "^3.6.24"
   },
   "devDependencies": {
     "@angular/cli": "^20.0.0",
